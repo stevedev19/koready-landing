@@ -1,4 +1,4 @@
-import { socialCard } from "@/lib/brand-image";
+import { socialCard } from "@/lib/og-card";
 
 export const alt = "KoReady: Understand Korea in your language";
 export const size = { width: 1200, height: 630 };

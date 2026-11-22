@@ -17,7 +17,7 @@ export default function GlobalNotFound() {
     <html lang="en">
       <body>
         <div className="site">
-        <main id="main" className="page grid-12 pt-16 md:pt-24">
+        <main id="main" className="page grid-12 pb-16 pt-16 md:pt-24">
           <div className="col-span-12 md:col-span-8">
             <LogoMark size={28} />
             <p className="label mt-10">404</p>

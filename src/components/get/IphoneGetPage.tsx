@@ -16,7 +16,7 @@ export function IphoneGetPage({ locale }: { locale: Locale }) {
   return (
     <>
       <SiteHeader locale={locale} path="/get/iphone" />
-      <main id="main" className="page pt-10 md:pt-16">
+      <main id="main" className="page pb-16 pt-10 md:pb-24 md:pt-16">
         <div className="grid-12">
           <div className="col-span-12 md:col-span-7">
             <h1 className="text-xl md:text-2xl">{p.title}</h1>

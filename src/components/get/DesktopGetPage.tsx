@@ -17,7 +17,7 @@ export function DesktopGetPage({ locale }: { locale: Locale }) {
   return (
     <>
       <SiteHeader locale={locale} path="/get/desktop" />
-      <main id="main" className="page pt-10 md:pt-16">
+      <main id="main" className="page pb-16 pt-10 md:pb-24 md:pt-16">
         <h1 className="text-xl md:text-2xl">{p.title}</h1>
         <p className="mt-4 max-w-text text-lg text-ink-muted">{p.intro}</p>
 

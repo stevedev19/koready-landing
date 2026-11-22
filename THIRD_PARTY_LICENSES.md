@@ -7,6 +7,7 @@ added or removed.
 | Asset | Used for | Source | Licence | Added |
 | --- | --- | --- | --- | --- |
 | Pretendard Variable 1.3.9, dynamic subset (`pretendard` npm package) | Site typeface, self-hosted | https://github.com/orioncactus/pretendard | SIL Open Font License 1.1 (https://openfontlicense.org) | 2026-11-22 |
+| Pretendard 1.3.9 static OTF, Regular and SemiBold (same `pretendard` package) | Text in the generated Open Graph image, read at build time | https://github.com/orioncactus/pretendard | SIL Open Font License 1.1 | 2026-11-22 |
 
 ## Framework and build tools
 
