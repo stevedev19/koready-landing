@@ -39,3 +39,15 @@ npm start       # serve the production build
 
 Links to the app, the stores and the tester group are set in
 `src/config/links.ts`.
+
+## Before launch
+
+- Fill the links in `src/config/links.ts`. Empty values show "Coming soon".
+- In Vercel, set `NEXT_PUBLIC_SITE_URL` to the site's final public URL
+  (for example a custom domain). It drives the canonical URL, sitemap,
+  hreflang, Open Graph and the QR code. Without it, Vercel's production
+  URL is used.
+- Korean copy in `src/i18n/messages.ts` is a draft and needs native review.
+- Replace the placeholder logo mark (`src/components/LogoMark.tsx`,
+  `src/app/icon.svg`, `src/lib/brand-image.tsx`) with the real logo.
+- Add real screenshots as WebP to `public/screens/` (see the README there).

@@ -106,13 +106,21 @@ export function HomePage({ locale }: { locale: Locale }) {
           <h2 id="screens-title" className="text-2xl font-bold tracking-tight sm:text-3xl">
             {h.screens.title}
           </h2>
-          <ul className="-mx-5 mt-6 flex snap-x gap-4 overflow-x-auto px-5 pb-4 sm:mx-0 sm:justify-center sm:px-0">
-            {h.screens.items.map((s) => (
-              <li key={s.id} className="shrink-0 snap-start">
-                <Screenshot id={s.id} alt={s.alt} placeholder={h.screens.placeholder} />
-              </li>
-            ))}
-          </ul>
+          {/* Scrollable on small screens: focusable and named so keyboard users can scroll it. */}
+          <div
+            role="region"
+            aria-labelledby="screens-title"
+            tabIndex={0}
+            className="-mx-5 mt-6 overflow-x-auto px-5 pb-4 sm:mx-0 sm:px-0"
+          >
+            <ul className="flex snap-x gap-4 sm:justify-center">
+              {h.screens.items.map((s) => (
+                <li key={s.id} className="shrink-0 snap-start">
+                  <Screenshot id={s.id} alt={s.alt} placeholder={h.screens.placeholder} />
+                </li>
+              ))}
+            </ul>
+          </div>
         </section>
 
         {/* Trust strip */}
