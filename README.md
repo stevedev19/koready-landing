@@ -1,36 +1,41 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# KoReady landing page
 
-## Getting Started
+Marketing site for KoReady, an installable web app that helps foreigners in
+Korea with language, scams, official help and daily life. The app itself lives
+in a separate repository; this project only links to it.
 
-First, run the development server:
+This site is deliberately simple: no service worker, no PWA manifest, no
+offline code, no cookies, no analytics, no third-party scripts.
+
+## Requirements
+
+- Node.js 22 (see `.nvmrc`; anything `>=20.9.0` works)
+- npm
+
+## Run locally
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+nvm use        # picks Node 22 from .nvmrc
+npm install
+npm run dev    # http://localhost:3000
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Checks
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+```bash
+npm run typecheck
+npm run lint
+npm run build   # production build
+npm start       # serve the production build
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## Deploy to Vercel
 
-## Learn More
+1. Push this folder to a new GitHub repository.
+2. In Vercel, choose **Add New → Project** and import that repository.
+3. Keep the detected defaults (Framework: Next.js, Build: `next build`).
+4. In **Settings → Build and Deployment**, set Node.js to 22.x.
+5. Deploy. Every later push to `main` redeploys automatically.
 
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Links to the app, the stores and the tester group are set in
+`src/config/links.ts`.
