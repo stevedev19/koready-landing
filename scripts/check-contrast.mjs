@@ -30,7 +30,7 @@ const pairs = [
   ["ink", "paper"], ["ink", "sheet"], ["ink", "sheet-sunk"],
   ["ink-muted", "paper"], ["ink-muted", "sheet"], ["ink-muted", "sheet-sunk"],
   ["teal", "paper"], ["teal", "sheet"], ["teal", "sheet-sunk"], ["on-teal", "teal"],
-  ["ink", "teal-wash"],
+  ["ink", "teal-wash"], ["paper", "ink"],
   ["red", "paper"], ["red", "sheet"], ["on-red", "red"], ["ink", "red-wash"],
 ];
 

@@ -35,6 +35,8 @@ const en = {
     googlePlay: "Google Play",
     appStore: "App Store",
     example: "Example",
+    langEn: "English",
+    langKo: "Korean",
   },
   home: {
     hero: {
@@ -47,7 +49,7 @@ const en = {
       noAccount: "No account needed.",
     },
     heroExample: {
-      caption: "Example phrase",
+      caption: "Example",
       en: "Is there a pharmacy near here?",
       ko: "이 근처에 약국이 있어요?",
     },
@@ -60,7 +62,7 @@ const en = {
         exampleLabel: "Example of a phrase result",
         input: "I’m allergic to peanuts.",
         output: "저는 땅콩 알레르기가 있어요.",
-        fullScreen: "Show full screen",
+        fullScreen: "Tap the Korean to show it full screen.",
       },
       check: {
         kicker: "Check a message",
@@ -76,7 +78,7 @@ const en = {
             why: "A delivery text with a link that is not the courier’s. Don’t tap it.",
           },
           {
-            tone: "neutral",
+            tone: "ink",
             status: "Be careful",
             message: "엄마 폰 고장나서 임시 번호야. 급하게 돈 좀 보내줄 수 있어?",
             why: "A new number asking for money. Call the person on the number you already have.",
@@ -244,6 +246,8 @@ const ko: DeepPartial<Messages> = {
     useWebApp: "브라우저에서 열기",
     openWebApp: "Safari에서 KoReady 열기",
     example: "예시",
+    langEn: "영어",
+    langKo: "한국어",
   },
   home: {
     hero: {
@@ -256,7 +260,7 @@ const ko: DeepPartial<Messages> = {
       noAccount: "계정이 필요 없습니다.",
     },
     heroExample: {
-      caption: "예시 문장",
+      caption: "예시",
     },
     rows: {
       title: "할 수 있는 일",
@@ -265,7 +269,7 @@ const ko: DeepPartial<Messages> = {
         title: "영어로 입력하고, 한국어로 보여 주세요.",
         body: "필요한 말을 쓰면 KoReady가 정중한 한국어로 바꿔 전체 화면으로 보여 줍니다. 앞에 있는 사람이 바로 읽을 수 있습니다.",
         exampleLabel: "문장 결과 예시",
-        fullScreen: "전체 화면으로 보기",
+        fullScreen: "한국어를 누르면 전체 화면으로 보입니다.",
       },
       check: {
         kicker: "메시지 확인",
@@ -280,7 +284,7 @@ const ko: DeepPartial<Messages> = {
             why: "택배사 주소가 아닌 링크가 있는 배송 문자입니다. 누르지 마세요.",
           },
           {
-            tone: "neutral",
+            tone: "ink",
             status: "주의",
             message: "엄마 폰 고장나서 임시 번호야. 급하게 돈 좀 보내줄 수 있어?",
             why: "새 번호로 돈을 요구합니다. 원래 알던 번호로 직접 전화해 보세요.",

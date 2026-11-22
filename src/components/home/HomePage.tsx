@@ -15,6 +15,7 @@ import { localePath, type Locale } from "@/i18n/locales";
 /* Layout follows DESIGN.md: 12-column grid, left-aligned, varied rhythm. */
 
 function Row({
+  n,
   kicker,
   title,
   body,
@@ -23,6 +24,7 @@ function Row({
   exampleCols,
   after,
 }: {
+  n: number;
   kicker: string;
   title: string;
   body: string;
@@ -33,10 +35,14 @@ function Row({
 }) {
   return (
     <div className="grid-12 gap-y-10">
-      <div className={`col-span-12 md:row-start-1 ${textCols}`}>
-        <p className="text-sm font-strong text-teal">{kicker}</p>
-        <h3 className="mt-2 text-xl">{title}</h3>
-        <p className="mt-4 text-lg text-ink-muted">{body}</p>
+      <div className={`col-span-12 md:row-start-1 md:self-center ${textCols}`}>
+        <p className="text-sm text-ink-muted">
+          <span className="tnum font-strong text-ink">{n}</span>
+          <span aria-hidden="true"> · </span>
+          {kicker}
+        </p>
+        <h3 className="mt-2 text-lg">{title}</h3>
+        <p className="mt-3 text-base text-ink-muted">{body}</p>
         {after}
       </div>
       <div className={`col-span-12 md:row-start-1 ${exampleCols}`}>{example}</div>
@@ -57,7 +63,7 @@ export function HomePage({ locale }: { locale: Locale }) {
 
       <main id="main">
         {/* 1. Hero: text 1–6, live example 7–12 bleeding right */}
-        <section className="page pb-16 pt-10 md:pb-24 md:pt-16">
+        <section className="page section pt-10 md:pt-16">
           <div className="grid-12 items-center gap-y-10">
             <div className="col-span-12 md:col-span-6">
               <p className="text-sm text-ink-muted">{h.hero.eyebrow}</p>
@@ -89,10 +95,12 @@ export function HomePage({ locale }: { locale: Locale }) {
               <div className="example">
                 <div className="bleed-safe p-6 md:p-10">
                   <figcaption className="label">{h.heroExample.caption}</figcaption>
-                  <p lang="en" className="mt-4 text-lg text-ink-muted">
+                  <p className="label mt-6">{t.common.langEn}</p>
+                  <p lang="en" className="mt-1 text-lg text-ink-muted">
                     {h.heroExample.en}
                   </p>
-                  <p lang="ko" className="ko-reveal mt-4 text-2xl font-strong md:text-3xl">
+                  <p className="label mt-6">{t.common.langKo}</p>
+                  <p lang="ko" className="ko-reveal mt-1 text-2xl font-strong md:text-3xl">
                     {h.heroExample.ko}
                   </p>
                 </div>
@@ -103,11 +111,12 @@ export function HomePage({ locale }: { locale: Locale }) {
 
         {/* 2. What you can do: four rows, alternating sides, varied widths */}
         <section aria-labelledby="rows-title" className="page section">
-          <h2 id="rows-title" className="text-xl">
+          <h2 id="rows-title" className="section-title">
             {r.title}
           </h2>
-          <div className="mt-16 space-y-24">
+          <div className="mt-10 space-y-16 md:mt-16 md:space-y-24">
             <Row
+              n={1}
               kicker={r.say.kicker}
               title={r.say.title}
               body={r.say.body}
@@ -115,15 +124,16 @@ export function HomePage({ locale }: { locale: Locale }) {
               exampleCols="md:col-start-7 md:col-span-6"
               example={
                 <ExampleFrame id="say" side="right" label={r.say.exampleLabel} exampleWord={t.common.example}>
-                  <PhraseExample t={r.say} />
+                  <PhraseExample t={r.say} langEn={t.common.langEn} langKo={t.common.langKo} />
                 </ExampleFrame>
               }
             />
             <Row
+              n={2}
               kicker={r.check.kicker}
               title={r.check.title}
               body={r.check.body}
-              textCols="md:col-start-9 md:col-span-4 md:self-center"
+              textCols="md:col-start-9 md:col-span-4"
               exampleCols="md:col-start-1 md:col-span-7"
               example={
                 <ExampleFrame id="check" side="left" label={r.check.exampleLabel} exampleWord={t.common.example}>
@@ -132,6 +142,7 @@ export function HomePage({ locale }: { locale: Locale }) {
               }
             />
             <Row
+              n={3}
               kicker={r.alert.kicker}
               title={r.alert.title}
               body={r.alert.body}
@@ -145,10 +156,11 @@ export function HomePage({ locale }: { locale: Locale }) {
               }
             />
             <Row
+              n={4}
               kicker={r.help.kicker}
               title={r.help.title}
               body={r.help.body}
-              textCols="md:col-start-8 md:col-span-5 md:self-end"
+              textCols="md:col-start-8 md:col-span-5"
               exampleCols="md:col-start-1 md:col-span-6"
               example={
                 <ExampleFrame id="help" side="left" label={r.help.exampleLabel} exampleWord={t.common.example}>
@@ -160,20 +172,17 @@ export function HomePage({ locale }: { locale: Locale }) {
         </section>
 
         {/* 3. What it won't do: plain list on a tinted band */}
-        <section aria-labelledby="wont-title" className="mt-16 bg-sheet-sunk md:mt-24">
+        <section aria-labelledby="wont-title" className="bg-sheet-sunk">
           <div className="page section">
             <div className="grid-12">
               <div className="col-span-12 md:col-span-8">
-                <h2 id="wont-title" className="text-xl">
+                <h2 id="wont-title" className="section-title">
                   {h.wont.title}
                 </h2>
                 <ul className="mt-6">
                   {h.wont.items.map((item, i) => (
-                    <li key={i} className="flex gap-4 border-b border-rule py-4 text-lg last:border-b-0">
-                      <span aria-hidden="true" className="text-ink-muted">
-                        —
-                      </span>
-                      <span>{item}</span>
+                    <li key={i} className="border-b border-rule py-4 text-lg last:border-b-0">
+                      {item}
                     </li>
                   ))}
                 </ul>
@@ -185,13 +194,13 @@ export function HomePage({ locale }: { locale: Locale }) {
         {/* 4. How it works: heading left, three numbered lines right */}
         <section aria-labelledby="how-title" className="page section">
           <div className="grid-12 gap-y-6">
-            <h2 id="how-title" className="col-span-12 text-xl md:col-span-4">
+            <h2 id="how-title" className="section-title col-span-12 md:col-span-4">
               {h.how.title}
             </h2>
-            <ol className="col-span-12 md:col-span-8">
+            <ol className="col-span-12 border-t-2 border-ink md:col-span-8">
               {h.how.steps.map((step, i) => (
-                <li key={i} className="flex gap-4 border-t border-rule py-4 text-lg first:border-t-0 first:pt-0">
-                  <span aria-hidden="true" className="tnum font-strong text-teal">
+                <li key={i} className="flex gap-4 border-t border-rule py-4 text-lg first:border-t-0">
+                  <span aria-hidden="true" className="tnum font-strong">
                     {i + 1}
                   </span>
                   <span>{step}</span>
@@ -205,7 +214,7 @@ export function HomePage({ locale }: { locale: Locale }) {
         <section aria-labelledby="faq-title" className="page section">
           <div className="grid-12">
             <div className="col-span-12 md:col-span-8">
-              <h2 id="faq-title" className="text-xl">
+              <h2 id="faq-title" className="section-title">
                 {h.faq.title}
               </h2>
               <div className="mt-6 border-b border-rule">

@@ -10,7 +10,7 @@ export function SiteFooter({ locale }: { locale: Locale }) {
   const offClass = "inline-flex min-h-12 items-center gap-2 text-ink";
 
   return (
-    <footer className="mt-16 border-t border-rule md:mt-24">
+    <footer className="border-t border-rule">
       <div className="page grid-12 gap-y-6 py-10 text-sm text-ink-muted">
         <nav aria-label={`${f.privacy}, ${f.support}`} className="col-span-12 md:col-span-4">
           <ul>

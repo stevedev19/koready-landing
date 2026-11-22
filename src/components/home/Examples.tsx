@@ -46,7 +46,7 @@ export function ExampleFrame({
           </div>
         ) : (
           <div className="bleed-safe p-6 md:p-10">
-            <p className="pill mb-6">{exampleWord}</p>
+            <p className="label mb-6">{exampleWord}</p>
             {children}
           </div>
         )}
@@ -58,18 +58,18 @@ export function ExampleFrame({
 
 type Rows = Messages["home"]["rows"];
 
-export function PhraseExample({ t }: { t: Rows["say"] }) {
+export function PhraseExample({ t, langEn, langKo }: { t: Rows["say"]; langEn: string; langKo: string }) {
   return (
     <div>
-      <p lang="en" className="well px-4 py-3 text-base text-ink-muted">
+      <p className="label">{langEn}</p>
+      <p lang="en" className="well mt-1 px-4 py-3 text-base text-ink-muted">
         {t.input}
       </p>
-      <p lang="ko" className="mt-6 text-xl font-strong md:text-2xl">
+      <p className="label mt-6">{langKo}</p>
+      <p lang="ko" className="mt-1 text-xl font-strong md:text-2xl">
         {t.output}
       </p>
-      <p className="mt-6">
-        <span className="btn btn-quiet pointer-events-none">{t.fullScreen}</span>
-      </p>
+      <p className="mt-6 border-t border-rule pt-4 text-sm text-ink-muted">{t.fullScreen}</p>
     </div>
   );
 }
@@ -79,7 +79,9 @@ export function ScamExample({ t }: { t: Rows["check"] }) {
     <ul className="space-y-4">
       {t.results.map((r) => (
         <li key={r.status} className="border-t border-rule pt-4 first:border-t-0 first:pt-0">
-          <p className={r.tone === "red" ? "pill pill-red" : "pill"}>{r.status}</p>
+          <p className={r.tone === "red" ? "pill pill-red" : r.tone === "ink" ? "pill pill-ink" : "pill"}>
+            {r.status}
+          </p>
           <p lang="ko" className="well mt-3 px-4 py-3 text-base">
             {r.message}
           </p>
@@ -121,19 +123,14 @@ export function HelpExample({ t }: { t: Rows["help"] }) {
           className="flex min-h-12 items-baseline gap-4 border-b border-rule py-3"
         >
           <span
-            className={`tnum w-16 shrink-0 text-xl font-strong ${line.tone === "red" ? "text-red" : "text-teal"}`}
+            className={`tnum min-w-16 shrink-0 text-xl font-strong ${line.tone === "red" ? "text-red" : "text-teal"}`}
           >
             {line.number}
           </span>
           <span className="text-base">{line.label}</span>
         </li>
       ))}
-      <li className="flex min-h-12 items-center justify-between gap-4 py-3">
-        <span className="text-base font-strong">{t.findCare}</span>
-        <span aria-hidden="true" className="text-teal">
-          →
-        </span>
-      </li>
+      <li className="flex min-h-12 items-center py-3 text-base font-strong">{t.findCare}</li>
     </ul>
   );
 }

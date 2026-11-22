@@ -240,6 +240,14 @@
     padding-block: calc(var(--section-gap) / 2);
   }
 
+  /* Section heading: a 2px ink bar above, like a sign header. */
+  .section-title {
+    border-top: 2px solid var(--ink);
+    padding-top: var(--spacing-4);
+    font-size: var(--text-xl);
+    line-height: var(--text-xl--line-height);
+  }
+
   .label {
     font-size: var(--text-xs);
     line-height: var(--text-xs--line-height);
@@ -318,6 +326,12 @@
   .pill-red {
     background: var(--red);
     color: var(--on-red);
+    box-shadow: none;
+  }
+  /* "Be careful": solid ink, between red and the plain outline. */
+  .pill-ink {
+    background: var(--ink);
+    color: var(--paper);
     box-shadow: none;
   }
   .pill-teal {
