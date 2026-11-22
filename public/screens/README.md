@@ -1,9 +1,10 @@
-Put real KoReady screenshots here as WebP, portrait, about 9:19.5
-(for example 360x780). File names the page looks for:
+Real KoReady screenshots go here as WebP. When a file exists at build
+time it replaces the rebuilt UI example for that row, shown cropped
+(top of the screen, 4:3) with no device frame.
 
-- say.webp    (Say it)
-- check.webp  (Check it)
-- help.webp   (Get help)
+- say.webp    phrase result with big Korean
+- check.webp  scam-check result
+- alert.webp  emergency text translation
+- help.webp   help lines screen
 
-Until a file exists, the page shows a tinted placeholder of the same size.
-Rebuild after adding files.
+Portrait, at least 720x1560. Rebuild after adding files.

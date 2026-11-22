@@ -12,7 +12,7 @@ export function ShareIcon({ label }: { label: string }) {
       strokeWidth="1.8"
       strokeLinecap="round"
       strokeLinejoin="round"
-      className="inline-block align-[-4px]"
+      className="inline-block align-text-bottom"
     >
       <path d="M12 3v12" />
       <path d="M8 7l4-4 4 4" />

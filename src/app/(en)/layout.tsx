@@ -5,6 +5,7 @@ import "pretendard/dist/web/variable/pretendardvariable-dynamic-subset.css";
 import "../globals.css";
 import { RootDocument } from "@/components/RootDocument";
 import { SITE_URL } from "@/config/links";
+import { tokens } from "@/design/tokens";
 import { getMessages } from "@/i18n/messages";
 
 const t = getMessages("en");
@@ -17,8 +18,8 @@ export const metadata: Metadata = {
 
 export const viewport: Viewport = {
   themeColor: [
-    { media: "(prefers-color-scheme: light)", color: "#f2f4f6" },
-    { media: "(prefers-color-scheme: dark)", color: "#0d1418" },
+    { media: "(prefers-color-scheme: light)", color: tokens.light.paper },
+    { media: "(prefers-color-scheme: dark)", color: tokens.dark.paper },
   ],
 };
 

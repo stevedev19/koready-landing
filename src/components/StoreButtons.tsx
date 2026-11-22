@@ -32,8 +32,8 @@ export function StoreButtons({ locale, stores = ["play", "appstore"] }: Props) {
           <MaybeLink
             href={items[key].href}
             comingSoonLabel={t.common.comingSoon}
-            className="btn btn-secondary"
-            comingSoonClassName="btn btn-disabled"
+            className="btn btn-quiet"
+            comingSoonClassName="btn btn-off"
           >
             {items[key].label}
           </MaybeLink>

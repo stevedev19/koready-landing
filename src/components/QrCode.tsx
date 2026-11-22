@@ -36,10 +36,10 @@ export function QrCode({ value, label, size = 184 }: Props) {
       width={size}
       height={size}
       shapeRendering="crispEdges"
-      className="rounded-[14px]"
+      className="rounded-md"
     >
-      <rect width={total} height={total} fill="#ffffff" />
-      <path d={d} fill="#000000" />
+      <rect width={total} height={total} className="fill-qr-paper" />
+      <path d={d} className="fill-qr-ink" />
     </svg>
   );
 }

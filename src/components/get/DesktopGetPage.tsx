@@ -17,48 +17,51 @@ export function DesktopGetPage({ locale }: { locale: Locale }) {
   return (
     <>
       <SiteHeader locale={locale} path="/get/desktop" />
-      <main id="main" className="mx-auto w-full max-w-4xl px-5 pb-16 pt-6">
-        <h1 className="text-3xl font-bold tracking-tight">{p.title}</h1>
-        <p className="mt-3 text-fg-muted">{p.intro}</p>
+      <main id="main" className="page pt-10 md:pt-16">
+        <h1 className="text-xl md:text-2xl">{p.title}</h1>
+        <p className="mt-4 max-w-text text-lg text-ink-muted">{p.intro}</p>
 
-        <div className="mt-8 grid gap-6 md:grid-cols-2">
-          <section aria-labelledby="phone-title" className="card flex flex-col items-start p-6">
-            <h2 id="phone-title" className="text-lg font-bold">
+        <div className="grid-12 mt-10 gap-y-10">
+          <section aria-labelledby="phone-title" className="col-span-12 md:col-span-5">
+            <h2 id="phone-title" className="text-lg">
               {p.phoneTitle}
             </h2>
-            <p className="mt-2 text-fg-muted">{p.phoneBody}</p>
-            <div className="mt-5 self-center">
+            <p className="mt-2 text-ink-muted">{p.phoneBody}</p>
+            <div className="example mt-6 inline-block p-4">
               <QrCode value={getUrl} label={`${p.qrLabel} ${shownUrl}`} />
             </div>
-            <p className="mt-4 self-center text-sm text-fg-muted">
-              {p.orVisit} <span className="font-semibold text-fg">{shownUrl}</span>
+            <p className="mt-4 text-sm text-ink-muted">
+              {p.orVisit} <span className="tnum font-strong text-ink">{shownUrl}</span>
             </p>
           </section>
 
-          <section aria-labelledby="browser-title" className="card flex flex-col items-start p-6">
-            <h2 id="browser-title" className="text-lg font-bold">
+          <section
+            aria-labelledby="browser-title"
+            className="col-span-12 border-t border-rule pt-10 md:col-start-7 md:col-span-6 md:border-l md:border-t-0 md:pl-10 md:pt-0"
+          >
+            <h2 id="browser-title" className="text-lg">
               {p.browserTitle}
             </h2>
-            <p className="mt-2 text-fg-muted">{p.browserBody}</p>
-            <div className="mt-5">
+            <p className="mt-2 text-ink-muted">{p.browserBody}</p>
+            <div className="mt-6">
               <MaybeLink
                 href={linkOrNull(WEB_APP_URL)}
                 comingSoonLabel={t.common.comingSoon}
                 className="btn btn-primary"
-                comingSoonClassName="btn btn-disabled"
+                comingSoonClassName="btn btn-off"
               >
                 {t.common.useWebApp}
               </MaybeLink>
             </div>
 
-            <h3 className="mt-8 font-bold">{p.storesTitle}</h3>
-            <div className="mt-3">
+            <h3 className="mt-10 text-base">{p.storesTitle}</h3>
+            <div className="mt-4">
               <StoreButtons locale={locale} />
             </div>
 
-            <p className="mt-8 text-sm text-fg-muted">
+            <p className="mt-10 text-ink-muted">
               {p.ipadNote}{" "}
-              <Link href={localePath(locale, "/get/iphone")} className="tap-link text-accent">
+              <Link href={localePath(locale, "/get/iphone")} className="link">
                 {p.ipadLink}
               </Link>
             </p>

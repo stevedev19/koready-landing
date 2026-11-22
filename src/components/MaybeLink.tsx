@@ -14,18 +14,12 @@ type Props = {
  * Renders a real link when `href` is set. When it is empty, renders a
  * non-interactive "Coming soon" label instead of a broken link.
  */
-export function MaybeLink({
-  href,
-  children,
-  comingSoonLabel,
-  className,
-  comingSoonClassName,
-}: Props) {
+export function MaybeLink({ href, children, comingSoonLabel, className, comingSoonClassName }: Props) {
   if (!href) {
     return (
       <span className={comingSoonClassName ?? className} aria-disabled="true">
         {children}
-        <span className="pill ml-1 text-xs">{comingSoonLabel}</span>
+        <span className="pill">{comingSoonLabel}</span>
       </span>
     );
   }

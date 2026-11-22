@@ -1,92 +1,149 @@
 @import "tailwindcss";
 
 /*
- * KoReady design tokens.
- * Teal accent on soft gray, white cards, red only for emergencies.
- * Every text/background pair below meets WCAG AA (4.5:1) — see
- * scripts/check-contrast.mjs.
+ * KoReady design tokens — the only place colours, type sizes, spacing,
+ * radii and shadows are defined. See DESIGN.md.
+ *
+ * Tailwind's default palettes and scales are switched off below, so a
+ * component can only use these tokens. Contrast of every text pair is
+ * checked by scripts/check-contrast.mjs.
  */
 
 :root {
   color-scheme: light dark;
 
-  --bg: #f2f4f6;
-  --surface: #ffffff;
-  --surface-muted: #e8ecef;
-  --fg: #0f1b22;
-  --fg-muted: #46555f;
-  --border: #d5dce1;
+  /* Colour — light */
+  --paper: #f6f4ef;
+  --sheet: #fffefb;
+  --sheet-sunk: #eeebe4;
+  --ink: #1b1a17;
+  --ink-muted: #5a564e;
+  --rule: #dcd7cd;
+  --teal: #0e6b63;
+  --on-teal: #ffffff;
+  --teal-wash: #d6ebe7;
+  --red: #b3261e;
+  --on-red: #ffffff;
+  --red-wash: #f9e3e0;
+  /* QR codes stay dark-on-light in both themes so cameras can read them. */
+  --qr-ink: #000000;
+  --qr-paper: #ffffff;
 
-  --accent: #0f6e66; /* teal; text on white/bg and button fill */
-  --accent-fg: #ffffff; /* text on accent fill */
-  --accent-soft: #dcefed; /* tinted fill */
-  --accent-soft-fg: #0b504a; /* text on tinted fill */
+  /* The one shadow level, used only on UI examples. */
+  --shadow-1: 0 1px 2px rgb(27 26 23 / 0.06), 0 6px 20px rgb(27 26 23 / 0.06);
 
-  --danger: #b4231f; /* emergencies only */
-  --danger-fg: #ffffff;
-  --danger-soft: #fbe7e6;
-  --danger-soft-fg: #8a1a17;
+  /* Layout */
+  --grid-max: 1200px;
+  --grid-gutter: 24px;
+  --page-margin: 16px;
+  --section-gap: 64px;
+  /* Distance from the content edge to the viewport edge. */
+  --edge: max(var(--page-margin), calc((100vw - var(--grid-max)) / 2));
+  /* How far UI examples run past the viewport edge, so they read as cropped. */
+  --overhang: 40px;
 
-  --focus: #0f6e66;
+  /* Korean inside English steps up by this much. */
+  --ko-scale: 1.125em;
+}
 
-  --shadow-card: 0 1px 2px rgb(15 27 34 / 0.05), 0 8px 24px rgb(15 27 34 / 0.07);
-  --shadow-control: 0 1px 2px rgb(15 27 34 / 0.08);
+@media (min-width: 768px) {
+  :root {
+    --page-margin: 40px;
+    --section-gap: 96px;
+  }
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --bg: #0d1418;
-    --surface: #162127;
-    --surface-muted: #1f2c33;
-    --fg: #e9eff2;
-    --fg-muted: #a6b4bc;
-    --border: #2b3a42;
-
-    --accent: #3fd0bd;
-    --accent-fg: #052823;
-    --accent-soft: #123a37;
-    --accent-soft-fg: #9ff0e4;
-
-    --danger: #ff8a80;
-    --danger-fg: #3a0603;
-    --danger-soft: #3d1715;
-    --danger-soft-fg: #ffc2bc;
-
-    --focus: #3fd0bd;
-
-    --shadow-card: 0 1px 2px rgb(0 0 0 / 0.4), 0 8px 24px rgb(0 0 0 / 0.35);
-    --shadow-control: 0 1px 2px rgb(0 0 0 / 0.5);
+    --paper: #151412;
+    --sheet: #1e1c1a;
+    --sheet-sunk: #272523;
+    --ink: #f2efe9;
+    --ink-muted: #aba59b;
+    --rule: #353230;
+    --teal: #45cfbc;
+    --on-teal: #06231f;
+    --teal-wash: #173a36;
+    --red: #ff8a80;
+    --on-red: #3a0603;
+    --red-wash: #3b1714;
+    --shadow-1: 0 1px 2px rgb(0 0 0 / 0.4), 0 6px 20px rgb(0 0 0 / 0.3);
   }
 }
 
-@theme inline {
-  --color-bg: var(--bg);
-  --color-surface: var(--surface);
-  --color-surface-muted: var(--surface-muted);
-  --color-fg: var(--fg);
-  --color-fg-muted: var(--fg-muted);
-  --color-border: var(--border);
-  --color-accent: var(--accent);
-  --color-accent-fg: var(--accent-fg);
-  --color-accent-soft: var(--accent-soft);
-  --color-accent-soft-fg: var(--accent-soft-fg);
-  --color-danger: var(--danger);
-  --color-danger-fg: var(--danger-fg);
-  --color-danger-soft: var(--danger-soft);
-  --color-danger-soft-fg: var(--danger-soft-fg);
+@theme {
+  /* Switch off Tailwind defaults so only tokens can be used. */
+  --color-*: initial;
+  --spacing: initial;
+  --spacing-*: initial;
+  --text-*: initial;
+  --radius-*: initial;
+  --shadow-*: initial;
+  --font-weight-*: initial;
 
-  --radius-card: 20px;
-  --radius-control: 14px;
+  /* Spacing scale: 4 8 12 16 24 40 64 96. `12` (48px) is for tap targets only. */
+  --spacing-0: 0px;
+  --spacing-px: 1px;
+  --spacing-1: 4px;
+  --spacing-2: 8px;
+  --spacing-3: 12px;
+  --spacing-4: 16px;
+  --spacing-6: 24px;
+  --spacing-10: 40px;
+  --spacing-12: 48px;
+  --spacing-16: 64px;
+  --spacing-24: 96px;
 
-  --shadow-card: var(--shadow-card);
-  --shadow-control: var(--shadow-control);
+  /* Type scale: 12 14 16 20 28 44 72 with fixed line heights. */
+  --text-xs: 12px;
+  --text-xs--line-height: 16px;
+  --text-sm: 14px;
+  --text-sm--line-height: 20px;
+  --text-base: 16px;
+  --text-base--line-height: 24px;
+  --text-lg: 20px;
+  --text-lg--line-height: 28px;
+  --text-xl: 28px;
+  --text-xl--line-height: 36px;
+  --text-2xl: 44px;
+  --text-2xl--line-height: 52px;
+  --text-3xl: 72px;
+  --text-3xl--line-height: 80px;
 
-  --spacing-tap: 3rem; /* 48px minimum tap target */
+  /* Two weights. */
+  --font-weight-normal: 400;
+  --font-weight-strong: 650;
+
+  /* Radius system. */
+  --radius-sm: 8px;
+  --radius-md: 14px;
+  --radius-lg: 20px;
+  --radius-full: 9999px;
+
+  --container-text: 60ch;
 
   --font-sans:
     "Pretendard Variable", Pretendard, -apple-system, BlinkMacSystemFont,
     system-ui, "Apple SD Gothic Neo", "Noto Sans KR", "Malgun Gothic",
     "Segoe UI", Roboto, sans-serif;
+}
+
+@theme inline {
+  --color-paper: var(--paper);
+  --color-sheet: var(--sheet);
+  --color-sheet-sunk: var(--sheet-sunk);
+  --color-ink: var(--ink);
+  --color-ink-muted: var(--ink-muted);
+  --color-rule: var(--rule);
+  --color-teal: var(--teal);
+  --color-on-teal: var(--on-teal);
+  --color-teal-wash: var(--teal-wash);
+  --color-red: var(--red);
+  --color-on-red: var(--on-red);
+  --color-red-wash: var(--red-wash);
+  --color-qr-ink: var(--qr-ink);
+  --color-qr-paper: var(--qr-paper);
+  --shadow-1: var(--shadow-1);
 }
 
 @layer base {
@@ -95,136 +152,240 @@
     text-size-adjust: 100%;
   }
 
-  /* Korean pages get a slightly larger base size. */
+  /* Whole-Korean pages use a slightly larger root. */
   html:lang(ko) {
-    font-size: 106.25%; /* 17px */
+    font-size: 17px;
   }
 
   body {
-    background: var(--bg);
-    color: var(--fg);
+    background: var(--paper);
+    color: var(--ink);
     font-family: var(--font-sans);
-    line-height: 1.6;
+    font-size: var(--text-base);
+    line-height: var(--text-base--line-height);
+    font-weight: var(--font-weight-normal);
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
   }
 
-  /*
-   * Korean text set inside English text is shown larger than its
-   * surroundings. Only the boundary element is scaled, so nested
-   * Korean never compounds.
-   */
-  :not(:lang(ko)) > :lang(ko) {
-    font-size: 1.125em;
-    line-height: 1.5;
+  h1,
+  h2,
+  h3 {
+    font-weight: var(--font-weight-strong);
+    text-wrap: balance;
   }
 
-  /* Korean: break between words, not inside them. */
+  p,
+  li,
+  dd {
+    text-wrap: pretty;
+  }
+
+  b,
+  strong {
+    font-weight: var(--font-weight-strong);
+  }
+
+  /* Korean set inside English is larger than its surroundings. Only the
+     boundary element scales, so nested Korean never compounds. Explicit
+     text-* utilities win (utilities layer). */
+  :not(:lang(ko)) > :lang(ko) {
+    font-size: var(--ko-scale);
+  }
+
   :lang(ko) {
     word-break: keep-all;
     overflow-wrap: anywhere;
   }
 
   :focus-visible {
-    outline: 3px solid var(--focus);
+    outline: 3px solid var(--teal);
     outline-offset: 3px;
-    border-radius: 6px;
   }
 
   ::selection {
-    background: var(--accent-soft);
-    color: var(--accent-soft-fg);
+    background: var(--teal-wash);
+    color: var(--ink);
   }
 }
 
 @layer components {
-  .card {
-    background: var(--surface);
-    border-radius: var(--radius-card);
-    box-shadow: var(--shadow-card);
+  /* Wraps every page. UI examples run past the viewport edge on purpose;
+     clipping here (not on html/body, which would propagate to the
+     viewport as "hidden") means the page can never scroll sideways. */
+  .site {
+    overflow-x: clip;
+    min-height: 100dvh;
+    display: flex;
+    flex-direction: column;
+  }
+  .site > main {
+    flex: 1;
+  }
+
+  /* 12-column page grid. */
+  .page {
+    width: 100%;
+    max-width: calc(var(--grid-max) + 2 * var(--page-margin));
+    margin-inline: auto;
+    padding-inline: var(--page-margin);
+  }
+  .grid-12 {
+    display: grid;
+    grid-template-columns: repeat(12, minmax(0, 1fr));
+    column-gap: var(--grid-gutter);
+  }
+
+  .section {
+    padding-block: calc(var(--section-gap) / 2);
+  }
+
+  .label {
+    font-size: var(--text-xs);
+    line-height: var(--text-xs--line-height);
+    letter-spacing: 0.04em;
+    color: var(--ink-muted);
+  }
+
+  .tnum {
+    font-variant-numeric: tabular-nums;
   }
 
   .btn {
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    gap: 0.5rem;
-    min-height: 3rem;
-    min-width: 3rem;
-    padding: 0.75rem 1.25rem;
-    border-radius: var(--radius-control);
-    font-weight: 600;
-    line-height: 1.2;
-    text-align: center;
+    gap: var(--spacing-2);
+    min-height: var(--spacing-12);
+    padding: var(--spacing-3) var(--spacing-6);
+    border-radius: var(--radius-md);
+    font-weight: var(--font-weight-strong);
     text-decoration: none;
-    transition:
-      background-color 150ms ease,
-      transform 150ms ease,
-      box-shadow 150ms ease;
+    transition: background-color 120ms ease;
   }
-  .btn:active {
-    transform: translateY(1px);
-  }
-
   .btn-primary {
-    background: var(--accent);
-    color: var(--accent-fg);
-    box-shadow: var(--shadow-control);
+    background: var(--teal);
+    color: var(--on-teal);
   }
   .btn-primary:hover {
-    background: color-mix(in oklab, var(--accent) 88%, var(--fg));
+    background: color-mix(in oklab, var(--teal) 86%, var(--ink));
   }
-
-  .btn-secondary {
-    background: var(--surface);
-    color: var(--fg);
-    box-shadow: inset 0 0 0 1.5px var(--border), var(--shadow-control);
+  .btn-quiet {
+    color: var(--ink);
+    box-shadow: inset 0 0 0 1px var(--rule);
   }
-  .btn-secondary:hover {
-    background: var(--surface-muted);
+  .btn-quiet:hover {
+    background: var(--sheet-sunk);
   }
-
-  .btn-disabled {
-    background: var(--surface-muted);
-    color: var(--fg-muted);
+  .btn-off {
+    color: var(--ink-muted);
+    background: var(--sheet-sunk);
     cursor: not-allowed;
+  }
+
+  /* Underlined text link with a full tap target; underline is always visible. */
+  .link {
+    display: inline-flex;
+    align-items: center;
+    min-height: var(--spacing-12);
+    color: var(--teal);
+    text-decoration: underline;
+    text-decoration-thickness: 1px;
+    text-underline-offset: 4px;
+  }
+  .link:hover {
+    text-decoration-thickness: 2px;
+  }
+  /* Inline links inside sentences: underline, no tap-target padding. */
+  .link-inline {
+    color: inherit;
+    text-decoration: underline;
+    text-decoration-thickness: 1px;
+    text-underline-offset: 3px;
   }
 
   .pill {
     display: inline-flex;
     align-items: center;
-    gap: 0.375rem;
-    border-radius: 9999px;
-    padding: 0.25rem 0.75rem;
-    font-size: 0.875rem;
-    font-weight: 600;
-    background: var(--accent-soft);
-    color: var(--accent-soft-fg);
+    border-radius: var(--radius-full);
+    padding: var(--spacing-1) var(--spacing-3);
+    font-size: var(--text-xs);
+    line-height: var(--text-xs--line-height);
+    font-weight: var(--font-weight-strong);
+    color: var(--ink);
+    box-shadow: inset 0 0 0 1px var(--rule);
+  }
+  .pill-red {
+    background: var(--red);
+    color: var(--on-red);
+    box-shadow: none;
+  }
+  .pill-teal {
+    background: var(--teal-wash);
+    color: var(--ink);
+    box-shadow: none;
   }
 
-  .pill-danger {
-    background: var(--danger-soft);
-    color: var(--danger-soft-fg);
+  /* A piece of the app: sheet, hairline, the one shadow, large radius. */
+  .example {
+    background: var(--sheet);
+    border: 1px solid var(--rule);
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-1);
   }
 
-  /* Text links that also need a 48px tap target. */
-  .tap-link {
-    display: inline-flex;
-    align-items: center;
-    min-height: 3rem;
-    text-decoration: underline;
-    text-underline-offset: 3px;
+  .well {
+    background: var(--sheet-sunk);
+    border-radius: var(--radius-sm);
   }
 }
 
-/* Respect reduced-motion preferences everywhere. */
+/* The one motion idea: the hero Korean wipes in once. */
+@keyframes ko-wipe {
+  from {
+    clip-path: inset(0 100% 0 0);
+  }
+  to {
+    clip-path: inset(0 0 0 0);
+  }
+}
+.ko-reveal {
+  animation: ko-wipe 600ms cubic-bezier(0.2, 0.7, 0.2, 1) 300ms both;
+}
+
 @media (prefers-reduced-motion: reduce) {
   *,
   *::before,
   *::after {
-    animation-duration: 0.01ms !important;
-    animation-iteration-count: 1 !important;
-    transition-duration: 0.01ms !important;
+    animation: none !important;
+    transition: none !important;
     scroll-behavior: auto !important;
+  }
+}
+
+/*
+ * Bleed: UI examples run past the content edge and off the viewport.
+ * The wrapper extends by --bleed; anything inside .bleed-safe stays in
+ * the visible area. Below 768px every example bleeds right.
+ */
+@layer components {
+  .bleed-right,
+  .bleed-left {
+    --bleed: calc(var(--edge) + var(--overhang));
+    margin-right: calc(-1 * var(--bleed));
+  }
+  .bleed-right .bleed-safe,
+  .bleed-left .bleed-safe {
+    margin-right: var(--bleed);
+  }
+  @media (min-width: 768px) {
+    .bleed-left {
+      margin-right: 0;
+      margin-left: calc(-1 * var(--bleed));
+    }
+    .bleed-left .bleed-safe {
+      margin-right: 0;
+      margin-left: var(--bleed);
+    }
   }
 }
