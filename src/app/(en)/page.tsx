@@ -1,12 +1,5 @@
-import { SiteHeader } from "@/components/SiteHeader";
+import { HomePage } from "@/components/home/HomePage";
 
-export default function Home() {
-  return (
-    <>
-      <SiteHeader locale="en" />
-      <main id="main" className="mx-auto max-w-5xl px-5">
-        <h1 className="text-3xl font-bold">KoReady</h1>
-      </main>
-    </>
-  );
+export default function Page() {
+  return <HomePage locale="en" />;
 }

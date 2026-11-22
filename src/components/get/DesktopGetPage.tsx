@@ -2,6 +2,7 @@ import Link from "next/link";
 import { SITE_URL, WEB_APP_URL, linkOrNull } from "@/config/links";
 import { MaybeLink } from "@/components/MaybeLink";
 import { QrCode } from "@/components/QrCode";
+import { SiteFooter } from "@/components/SiteFooter";
 import { SiteHeader } from "@/components/SiteHeader";
 import { StoreButtons } from "@/components/StoreButtons";
 import { getMessages } from "@/i18n/messages";
@@ -64,6 +65,7 @@ export function DesktopGetPage({ locale }: { locale: Locale }) {
           </section>
         </div>
       </main>
+      <SiteFooter locale={locale} />
     </>
   );
 }

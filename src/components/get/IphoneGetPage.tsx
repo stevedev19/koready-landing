@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { APP_STORE_URL, WEB_APP_URL, linkOrNull } from "@/config/links";
 import { MaybeLink } from "@/components/MaybeLink";
+import { SiteFooter } from "@/components/SiteFooter";
 import { SiteHeader } from "@/components/SiteHeader";
 import { StoreButtons } from "@/components/StoreButtons";
 import { ShareIcon } from "@/components/get/ShareIcon";
@@ -72,6 +73,7 @@ export function IphoneGetPage({ locale }: { locale: Locale }) {
           </Link>
         </p>
       </main>
+      <SiteFooter locale={locale} />
     </>
   );
 }

@@ -30,6 +30,133 @@ const en = {
     googlePlay: "Get it on Google Play",
     appStore: "Download on the App Store",
   },
+  home: {
+    hero: {
+      eyebrow: "For foreigners in Korea",
+      title: "Understand Korea in your language",
+      body: "Say what you need in natural Korean, check messages that look wrong, and reach the right help. All in one app that installs from your browser.",
+      primary: "Get the app",
+      secondary: "Use the web app",
+    },
+    demo: {
+      label: "Example: turning an English sentence into Korean",
+      inputLabel: "You type",
+      input: "Where is the nearest pharmacy?",
+      outputLabel: "KoReady shows",
+      output: "가장 가까운 약국이 어디예요?",
+      note: "Shown big so the other person can read it.",
+    },
+    features: {
+      title: "What KoReady does",
+      items: [
+        {
+          id: "say",
+          title: "Say it",
+          body: "Type in your language and get natural Korean. Show it big on your screen so the other person can read it.",
+        },
+        {
+          id: "check",
+          title: "Check it",
+          body: "A scam checker and a translator for Korean emergency texts, both running on your phone. Plus a letter reader for Korean mail and notices.",
+        },
+        {
+          id: "help",
+          title: "Get help",
+          body: "SOS numbers, interpreter and official help lines, and a quick way to find a doctor or pharmacy.",
+        },
+        {
+          id: "discover",
+          title: "Discover",
+          body: "Useful places nearby and the everyday apps people in Korea rely on.",
+        },
+      ],
+      sos: "SOS",
+    },
+    screens: {
+      title: "A look inside",
+      placeholder: "Screenshot coming soon",
+      items: [
+        { id: "say", alt: "KoReady Say it screen" },
+        { id: "check", alt: "KoReady Check it screen" },
+        { id: "help", alt: "KoReady Get help screen" },
+      ],
+    },
+    trust: {
+      title: "Built to be careful",
+      items: [
+        "No account needed.",
+        "Scam and alert checks run on your phone.",
+        "The scam checker never says “safe”. It shows warning signs and points you to official numbers.",
+        "Not a replacement for emergency services. In an emergency, call 112 (police) or 119 (fire and ambulance).",
+      ],
+    },
+    how: {
+      title: "How it works",
+      steps: [
+        {
+          title: "Open KoReady",
+          body: "Use it in your browser, or add it to your Home Screen so it opens like an app.",
+        },
+        {
+          title: "Pick what you need",
+          body: "Say something, check a message, get help or discover what’s nearby.",
+        },
+        {
+          title: "Show it or call",
+          body: "Show the Korean on your screen, or tap straight through to the right number.",
+        },
+      ],
+    },
+    faq: {
+      title: "Questions",
+      items: [
+        {
+          id: "free",
+          q: "Is it free?",
+          a: "Yes. KoReady is free to use, and you don’t need an account.",
+        },
+        {
+          id: "offline",
+          q: "Does it work offline?",
+          a: "Partly. The scam checker and the emergency text translator run on your phone. Features that look things up, like turning your words into Korean, need an internet connection.",
+        },
+        {
+          id: "emergency",
+          q: "Does it replace emergency services?",
+          a: "No. KoReady helps you understand and reach help, but it is not an emergency service. In an emergency, call 112 for police or 119 for fire and ambulance.",
+        },
+        {
+          id: "languages",
+          q: "Which languages does it support?",
+          a: "English and Korean for now.",
+        },
+        {
+          id: "iphone",
+          q: "Can I use it on an iPhone?",
+          a: "Yes. Open it in Safari and add it to your Home Screen, then use it from there.",
+          link: "See the iPhone steps",
+        },
+      ],
+    },
+    tester: {
+      title: "Help us test on Android",
+      body: "Try new versions early and tell us what to fix.",
+      button: "Join the Android test",
+    },
+    finalCta: {
+      title: "Ready when you are",
+      body: "Open it in your browser now, or install it on your phone.",
+    },
+  },
+  footer: {
+    privacy: "Privacy policy",
+    support: "Support",
+    credits: "Credits",
+    creditsFont: "Pretendard typeface by Kil Hyung-jin, SIL Open Font License 1.1.",
+    creditsWeather: "Weather data in the app:",
+    noCookies: "This website uses no cookies or trackers.",
+    notAffiliated: "Not affiliated with any government agency.",
+  },
   get: {
     iphone: {
       metaTitle: "Use KoReady on your iPhone",
@@ -91,6 +218,131 @@ const ko: DeepPartial<Messages> = {
     openWebApp: "KoReady 열기",
     googlePlay: "Google Play에서 받기",
     appStore: "App Store에서 다운로드",
+  },
+  home: {
+    hero: {
+      eyebrow: "한국에 사는 외국인을 위해",
+      title: "한국을 내 언어로 이해하세요",
+      body: "필요한 말을 자연스러운 한국어로 전하고, 수상한 메시지를 확인하고, 알맞은 도움을 받으세요. 브라우저에서 설치하는 앱 하나로 모두 할 수 있습니다.",
+      primary: "앱 받기",
+      secondary: "웹 앱 사용하기",
+    },
+    demo: {
+      label: "예시: 영어 문장을 한국어로 바꾸기",
+      inputLabel: "입력",
+      outputLabel: "KoReady 화면",
+      note: "상대방이 읽을 수 있도록 크게 보여 줍니다.",
+    },
+    features: {
+      title: "KoReady로 할 수 있는 일",
+      items: [
+        {
+          id: "say",
+          title: "말하기",
+          body: "내 언어로 입력하면 자연스러운 한국어로 바꿔 줍니다. 상대방이 읽을 수 있도록 화면에 크게 보여 주세요.",
+        },
+        {
+          id: "check",
+          title: "확인하기",
+          body: "사기 메시지 확인과 한국어 긴급 문자 번역이 휴대폰 안에서 실행됩니다. 한국어 우편물과 안내문을 읽어 주는 기능도 있습니다.",
+        },
+        {
+          id: "help",
+          title: "도움 받기",
+          body: "긴급 번호, 통역 및 공식 상담 전화, 병원과 약국을 빠르게 찾는 방법을 제공합니다.",
+        },
+        {
+          id: "discover",
+          title: "둘러보기",
+          body: "가까운 유용한 장소와 한국 생활에 꼭 필요한 앱을 소개합니다.",
+        },
+      ],
+      sos: "SOS",
+    },
+    screens: {
+      title: "앱 미리 보기",
+      placeholder: "스크린샷 준비 중",
+      items: [
+        { id: "say", alt: "KoReady 말하기 화면" },
+        { id: "check", alt: "KoReady 확인하기 화면" },
+        { id: "help", alt: "KoReady 도움 받기 화면" },
+      ],
+    },
+    trust: {
+      title: "신중하게 만들었습니다",
+      items: [
+        "계정이 필요 없습니다.",
+        "사기 및 경보 확인은 휴대폰 안에서 실행됩니다.",
+        "사기 확인 기능은 절대 ‘안전하다’고 말하지 않습니다. 위험 신호를 보여 주고 공식 번호를 안내합니다.",
+        "긴급 서비스를 대신하지 않습니다. 긴급 상황에서는 112(경찰) 또는 119(화재·구급)에 전화하세요.",
+      ],
+    },
+    how: {
+      title: "사용 방법",
+      steps: [
+        {
+          title: "KoReady 열기",
+          body: "브라우저에서 사용하거나, 홈 화면에 추가해 앱처럼 여세요.",
+        },
+        {
+          title: "필요한 기능 고르기",
+          body: "말하기, 메시지 확인, 도움 받기, 주변 둘러보기 중에서 고르세요.",
+        },
+        {
+          title: "보여 주거나 전화하기",
+          body: "화면의 한국어를 보여 주거나, 알맞은 번호로 바로 전화하세요.",
+        },
+      ],
+    },
+    faq: {
+      title: "자주 묻는 질문",
+      items: [
+        {
+          id: "free",
+          q: "무료인가요?",
+          a: "네. KoReady는 무료이며 계정이 필요 없습니다.",
+        },
+        {
+          id: "offline",
+          q: "오프라인에서도 작동하나요?",
+          a: "일부 기능만 가능합니다. 사기 확인과 긴급 문자 번역은 휴대폰 안에서 실행됩니다. 입력한 말을 한국어로 바꾸는 것처럼 정보를 찾아오는 기능은 인터넷 연결이 필요합니다.",
+        },
+        {
+          id: "emergency",
+          q: "긴급 서비스를 대신하나요?",
+          a: "아니요. KoReady는 상황을 이해하고 도움을 요청하도록 돕지만 긴급 서비스가 아닙니다. 긴급 상황에서는 경찰 112, 화재·구급 119에 전화하세요.",
+        },
+        {
+          id: "languages",
+          q: "어떤 언어를 지원하나요?",
+          a: "현재는 영어와 한국어를 지원합니다.",
+        },
+        {
+          id: "iphone",
+          q: "iPhone에서도 쓸 수 있나요?",
+          a: "네. Safari에서 열어 홈 화면에 추가한 뒤 홈 화면에서 사용하세요.",
+          link: "iPhone 안내 보기",
+        },
+      ],
+    },
+    tester: {
+      title: "Android 테스트에 참여하세요",
+      body: "새 버전을 먼저 써 보고 고칠 점을 알려 주세요.",
+      button: "Android 테스트 참여하기",
+    },
+    finalCta: {
+      title: "준비되면 언제든지",
+      body: "지금 브라우저에서 열거나 휴대폰에 설치하세요.",
+    },
+  },
+  footer: {
+    privacy: "개인정보 처리방침",
+    support: "고객 지원",
+    credits: "출처",
+    creditsFont: "Pretendard 글꼴: 길형진, SIL Open Font License 1.1.",
+    creditsWeather: "앱의 날씨 데이터:",
+    noCookies: "이 웹사이트는 쿠키나 추적 도구를 사용하지 않습니다.",
+    notAffiliated: "어떤 정부 기관과도 관련이 없습니다.",
   },
   get: {
     iphone: {
