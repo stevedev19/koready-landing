@@ -4,11 +4,13 @@ import type { Metadata, Viewport } from "next";
 import "pretendard/dist/web/variable/pretendardvariable-dynamic-subset.css";
 import "../globals.css";
 import { RootDocument } from "@/components/RootDocument";
+import { SITE_URL } from "@/config/links";
 import { getMessages } from "@/i18n/messages";
 
 const t = getMessages("ko");
 
 export const metadata: Metadata = {
+  metadataBase: new URL(SITE_URL),
   title: { default: t.meta.title, template: `%s · ${t.meta.siteName}` },
   description: t.meta.description,
 };

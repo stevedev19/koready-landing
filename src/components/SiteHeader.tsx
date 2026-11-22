@@ -27,7 +27,6 @@ export function SiteHeader({ locale, path = "/" }: Props) {
         href={localePath(alt, path)}
         hrefLang={alt}
         lang={alt}
-        aria-label={t.common.languageSwitchLabel}
         className="btn btn-secondary px-4 text-sm"
       >
         {t.common.languageSwitch}
