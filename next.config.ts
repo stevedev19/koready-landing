@@ -1,9 +1,13 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
-  /* config options here */
   cacheComponents: true,
   partialPrefetching: true,
+  poweredByHeader: false,
+  experimental: {
+    // Two root layouts (English and Korean) need a global 404 page.
+    globalNotFound: true,
+  },
   turbopack: {
     rules: {
       "*.css": {
